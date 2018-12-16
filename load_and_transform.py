@@ -31,4 +31,5 @@ def load_image_batch(image_filenames):
     batch_images = map(transform_image, batch_images)
     batch_images = map(lambda x : x.unsqueeze(0), batch_images)
     batch_images = torch.cat(batch_images, 0)
+    batch_images = batch_images.cuda()
     return batch_images
